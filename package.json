@@ -18,6 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "lint": "eslint --ext .ts,.tsx --fix src/",
+    "type-check": "tsc",
     "build": "react-scripts build"
   },
   "browserslist": {
