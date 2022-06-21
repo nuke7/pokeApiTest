@@ -1,45 +1,53 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": [
-        "plugin:react/recommended",
-        "plugin:jest/all",
-        "standard",
-        "standard/hooks"
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:jest/recommended",
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": ["tsconfig.json"]
+  },
+  "plugins": [
+    "react",
+    "jest",
+    "simple-import-sort"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.test.tsx",
+        "*.test.ts"
       ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react",
-        "jest",
-        "@typescript-eslint",
-        "simple-import-sort"
-    ],
-    "rules": {
-        "jest/lowercase-name": 0,
-        "no-use-before-define": [
-          "error",
-          {
-            "variables": false
-          }
-        ],
-        "yoda": [
-          "error",
-          "always",
-          {
-            "onlyEquality": true
-          }
-        ],
-        "simple-import-sort/imports": "error",
-        "simple-import-sort/exports": "off",
-        "sort-imports": "off"
+      "plugins": [
+        "jest"
+      ],
+      "extends": [
+        "plugin:jest/recommended"
+      ],
+      "rules": {
+        "jest/prefer-expect-assertions": "off"
+      }
     }
+  ],
+  "rules": {
+    "jest/lowercase-name": 0,
+    "no-use-before-define": [
+      "error",
+      {
+        "variables": false
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "off",
+    "sort-imports": "off",
+    "jest/prefer-expect-assertions": "off"
+  }
 }
