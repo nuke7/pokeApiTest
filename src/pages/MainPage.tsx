@@ -2,6 +2,7 @@
 // eslint disable no-unused-vars
 import { useEffect, useState } from 'react';
 
+import { Card } from '../components/Card';
 import Header from './Header';
 
 type PokeData = {
@@ -39,20 +40,26 @@ export default function MainPage() {
   return (
     <div>
       <Header />
-      <div>
-        {pokeData && pokeData.map((pokemon, key) => (
-          <p key={`${Math.random() * 1000 + key}`}>
-            {pokemon.name}
-            <p>
-              Price:
-              {' '}
-              {pokemon.weight * 100}
-            </p>
-          </p>
-        ))}
-        {' '}
+      <div style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: '10px',
+      }}
+      >
+        {
+          pokeData?.map((pokemon, iterator) => (
+            <Card
+              // eslint-disable-next-line react/no-array-index-key
+              key={iterator}
+              name={pokemon.name}
+              weight={pokemon.weight}
+              photo={pokemon.photo}
+            />
+          ))
+        }
 
       </div>
+
     </div>
   );
 }
