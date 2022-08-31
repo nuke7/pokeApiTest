@@ -1,8 +1,6 @@
-/* eslint-disable max-len */
-// eslint disable no-unused-vars
 import { useEffect, useState } from 'react';
 
-import { Card } from '../components/Card';
+import Card from '../components/Card';
 import Header from './Header';
 
 type PokeData = {
@@ -34,7 +32,6 @@ export default function MainPage() {
 
   useEffect(() => {
     pokemonFetch();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -47,13 +44,10 @@ export default function MainPage() {
       }}
       >
         {
-          pokeData?.map((pokemon, iterator) => (
+          pokeData?.map((pokemon) => (
             <Card
-              // eslint-disable-next-line react/no-array-index-key
-              key={iterator}
-              name={pokemon.name}
-              weight={pokemon.weight}
-              photo={pokemon.photo}
+              key={Math.random() * 9000}
+              props={{ name: pokemon.name, weight: pokemon.weight, photo: pokemon.photo }}
             />
           ))
         }

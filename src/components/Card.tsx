@@ -1,12 +1,12 @@
-/* eslint-disable react/destructuring-assignment */
-type CardProps = {
+import { PropsWithoutRef } from 'react';
+
+export interface CardProps {
   name: string;
   weight: number;
   photo: string;
-};
+}
 
-// eslint-disable-next-line import/prefer-default-export
-export function Card(props: CardProps): JSX.Element {
+function Card({ props }: PropsWithoutRef <{ props: CardProps }>) {
   return (
     <div
       style={{
@@ -28,3 +28,5 @@ export function Card(props: CardProps): JSX.Element {
     </div>
   );
 }
+
+export default Card;
